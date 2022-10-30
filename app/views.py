@@ -8,8 +8,8 @@ def index(request):
     if request.method == 'POST':
         if request.POST['login'] == 'admin' and request.POST['password'] == 'teste':
             data['login'] = True
-            return render(request, 'app/index.html', data)
+            return render(request, 'app/index.html', data, status=200)
         else:
             data['login'] = False
-            return render(request, 'app/index.html', data)
+            return render(request, 'app/index.html', data, status=400)
     return render(request, 'app/index.html', data)
