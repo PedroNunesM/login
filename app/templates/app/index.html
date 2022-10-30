@@ -13,6 +13,9 @@
                     <h2 class="input-type">Senha:</h2>
                     <input type="text" name="password" placeholder=" Senha">
                     <button type="submit">Entrar</button>
+                    {% if tentativa %}
+                        <h3 style="background-color: white;">Usuário ou senha incorreto!</h3>
+                    {% endif %}
                 </form>
                 {% else %}
                     <h1 class="input-type">AcHaCTF{BruTe_FoRcE_BaBy}</h1>
