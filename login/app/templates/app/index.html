@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/div-login.css' %}">
+    </head>
+    <body style="background-image: url({% static 'img/hacking-fundo.jpeg' %});">
+        <center>
+            <div class="container">
+                {% if not login %}
+                <form method="post" class="box" style="background-image: url({% static 'img/hacking-login.jpeg' %});">
+                    <h2 class="input-type">Usuário:</h2>
+                    <input type="text" name="login" placeholder=" Usuario">
+                    <h2 class="input-type">Senha:</h2>
+                    <input type="text" name="password" placeholder=" Senha">
+                    <button type="submit">Entrar</button>
+                </form>
+                {% else %}
+                    <h1 class="input-type">AcHaCTF{BruTe_FoRcE_BaBy}</h1>
+                {% endif %}
+            </div>
+        </center>
+    </body>
+</html>
