@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import django_on_heroku
+import environ
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -70,6 +71,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'login.wsgi.application'
 
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -78,6 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'SITE_USER': env('SITE_USER'),
+        'SITE_PASS': env('SITE_PASS')
     }
 }
 

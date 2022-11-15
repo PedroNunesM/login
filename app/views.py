@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+import os
 # Create your views here.
 
 def index(request):
@@ -7,7 +7,7 @@ def index(request):
     data['login'] = False
     data['tentativa'] = False
     if request.method == 'POST':
-        if request.POST['login'] == 'admin' and request.POST['password'] == 'teste':
+        if request.POST['login'] == os.environ['SITE_USER'] and request.POST['password'] == os.environ['SITE_PASS']:
             data['login'] = True
             data['tentativa'] = False
             return render(request, 'app/index.html', data, status=200)
