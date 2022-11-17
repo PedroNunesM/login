@@ -5,13 +5,16 @@
     </head>
     <body style="background-image: url({% static 'img/hacking-fundo.jpeg' %});">
         <center>
+            <div style="display: none;">
+                <a href="{% static 'arquivo/dados.zip' %}" download="dados.zip">baixar</a>
+            </div>
             <div class="container">
                 {% if not login %}
                 <form method="post" class="box" style="background-image: url({% static 'img/hacking-login.jpeg' %});">
                     <h2 class="input-type">Usuário:</h2>
                     <input type="text" name="login" placeholder=" Usuario">
                     <h2 class="input-type">Senha:</h2>
-                    <input type="text" name="password" placeholder=" Senha">
+                    <input type="password" name="password" placeholder=" Senha">
                     <button type="submit">Entrar</button>
                     {% if tentativa %}
                         <h3 style="background-color: white;">Usuário ou senha incorreto!</h3>
